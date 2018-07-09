@@ -1,14 +1,28 @@
-public void takeSmallerFrom(LinkedIntList list2)
-    {
-        if(this.front== null|| list2.front == null)return;
-        
-        if(this.front.data> list2.front.data)
-        {
-            ListNode temp = this.front;
-           this.front = list2.front;
-            list2.front = temp;
-            swapSubList( this.front, list2.front);
-            
+public void takeSmallerFrom(LinkedIntList a) {
+    if (front != null && a.front != null) {
+        ListNode b = null;
+        ListNode c = null;
+        if (front.data > a.front.data) {
+            b = front;
+            c = front.next;
+            front = a.front;
+            a.front = b;
+            a.front.next = front.next;
+            front.next = c;
         }
-        takeSmallerFrom(this.front, list2.front);
+        ListNode d = front;
+        ListNode e = a.front;
+        while (!(d == null && e == null && d.next == null && e.next == null)) {
+            if (d.next.data > e.next.data) {
+                b = d.next;
+                c = d.next.next;
+                d.next = e.next;
+                e.next = b;
+                e.next.next = d.next.next;
+                d.next.next = c;                  
+            } 
+            d = d.next;
+            e = e.next;
+        }
     }
+}
