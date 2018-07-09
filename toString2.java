@@ -5,6 +5,11 @@ public String toString2(){
     while (b != null){
         a.append(b.data);
         b = b.next;
+        a.append(", ");
+    }
+    if (a.length() > 2) {
+        a.deleteCharAt(a.length() - 1);
+        a.deleteCharAt(a.length() - 1);
     }
     a.append(']');
     return a.toString();
