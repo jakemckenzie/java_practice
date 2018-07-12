@@ -1,16 +1,7 @@
-public String toString2(){
-    StringBuilder a = new StringBuilder();
-    ListNode b = front;
-    a.append('[');
-    while (b != null){
-        a.append(b.data);
-        b = b.next;
-        a.append(", ");
-    }
-    if (a.length() > 2) {
-        a.deleteCharAt(a.length() - 1);
-        a.deleteCharAt(a.length() - 1);
-    }
-    a.append(']');
-    return a.toString();
+public String toString2() {
+    return getTS(overallRoot);
+}
+public String getTS(IntTreeNode a) {
+    if (a == null) return "empty";
+    return (a.left == null && a.right == null) ? "" + a.data : "(" + a.data + ", " + getTS(a.left) + ", " + getTS(a.right) + ")";
 }
